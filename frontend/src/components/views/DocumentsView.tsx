@@ -254,6 +254,7 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
               <DocumentsTable
                 documents={filteredDocs}
                 onSelectDocument={onSelectDocument}
+                onDeleteDocument={onDeleteDocument}
                 onViewAll={() => onFilterStatus(null)}
               />
             </div>

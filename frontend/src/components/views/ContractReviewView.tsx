@@ -220,42 +220,77 @@ export const ContractReviewView: React.FC<ContractReviewViewProps> = ({
           {/* Sub Navigation */}
           <div
             style={{
-              padding: '12px 16px',
-              borderBottom: '1px solid #E5E9E7',
+              padding: '10px 16px',
+              borderBottom: '1px solid #EDF1EF',
               display: 'flex',
               gap: '8px',
-              background: '#F8FAF9',
+              background: '#FFFFFF',
               borderTopLeftRadius: '10px',
               borderTopRightRadius: '10px',
             }}
           >
             <button
               type="button"
-              className={`counsel-quick-action ${activeTab === 'clauses' ? 'active' : ''}`}
               style={{
-                padding: '6px 12px',
-                fontSize: '0.78rem',
-                backgroundColor: activeTab === 'clauses' ? '#0D382B' : '#FFFFFF',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '7px 14px',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                borderRadius: '8px',
+                border: activeTab === 'clauses' ? '1px solid #0D382B' : '1px solid #E5E9E7',
+                backgroundColor: activeTab === 'clauses' ? '#0D382B' : '#F8FAF9',
                 color: activeTab === 'clauses' ? '#FFFFFF' : '#374151',
-                margin: 0,
+                cursor: 'pointer',
+                transition: 'all 120ms ease',
               }}
               onClick={() => setActiveTab('clauses')}
             >
-              Clause Findings ({analysis?.findings.length || 0})
+              <span>📋 Clause Findings</span>
+              <span
+                style={{
+                  fontSize: '0.7rem',
+                  padding: '1px 6px',
+                  borderRadius: '10px',
+                  background: activeTab === 'clauses' ? '#134E3C' : '#E5E7EB',
+                  color: activeTab === 'clauses' ? '#A7F3D0' : '#4B5563',
+                }}
+              >
+                {analysis?.findings.length || 0}
+              </span>
             </button>
             <button
               type="button"
-              className={`counsel-quick-action ${activeTab === 'qa' ? 'active' : ''}`}
               style={{
-                padding: '6px 12px',
-                fontSize: '0.78rem',
-                backgroundColor: activeTab === 'qa' ? '#0D382B' : '#FFFFFF',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '7px 14px',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                borderRadius: '8px',
+                border: activeTab === 'qa' ? '1px solid #0D382B' : '1px solid #E5E9E7',
+                backgroundColor: activeTab === 'qa' ? '#0D382B' : '#F8FAF9',
                 color: activeTab === 'qa' ? '#FFFFFF' : '#374151',
-                margin: 0,
+                cursor: 'pointer',
+                transition: 'all 120ms ease',
               }}
               onClick={() => setActiveTab('qa')}
             >
-              Ask Gemma 3n (Q&A)
+              <span>✨ Ask Gemma 3n (Q&A)</span>
+              <span
+                style={{
+                  fontSize: '0.68rem',
+                  padding: '1px 6px',
+                  borderRadius: '10px',
+                  background: activeTab === 'qa' ? '#134E3C' : '#ECFDF5',
+                  color: activeTab === 'qa' ? '#A7F3D0' : '#059669',
+                  fontWeight: 700,
+                }}
+              >
+                Edge AI
+              </span>
             </button>
           </div>
 
@@ -333,6 +368,7 @@ export const ContractReviewView: React.FC<ContractReviewViewProps> = ({
                 sessionId={extraction?.filename || 'session'}
                 onAsk={onAskQuestion}
                 suggestedQuestions={suggestedQuestions}
+                onSpanClick={(spanId) => setSelectedSpanId(spanId)}
               />
             )}
           </div>

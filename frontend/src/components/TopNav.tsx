@@ -1,5 +1,6 @@
 import React from 'react'
 import type { HealthResponse } from '../types'
+import type { DocumentRow } from './DocumentsTable'
 
 interface TopNavProps {
   health: HealthResponse | null
@@ -7,6 +8,8 @@ interface TopNavProps {
   onSearchChange: (q: string) => void
   onAddDocument: () => void
   onModelPillClick: () => void
+  selectedDoc?: DocumentRow | null
+  onRemoveDocument?: () => void
 }
 
 export const TopNav: React.FC<TopNavProps> = ({
@@ -15,6 +18,8 @@ export const TopNav: React.FC<TopNavProps> = ({
   onSearchChange,
   onAddDocument,
   onModelPillClick,
+  selectedDoc,
+  onRemoveDocument,
 }) => {
   const isHealthy = health?.model_available ?? true
   const modelLabel = health?.model_name || 'Gemma 3n'
@@ -54,6 +59,38 @@ export const TopNav: React.FC<TopNavProps> = ({
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </div>
+
+        {/* Active Document Pill with Remove Button */}
+        {selectedDoc && (
+          <div className="counsel-active-doc-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0D382B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+            </svg>
+            <span className="counsel-active-doc-name" title={selectedDoc.title}>
+              {selectedDoc.title.length > 22 ? selectedDoc.title.slice(0, 22) + '…' : selectedDoc.title}
+            </span>
+            <span className={`counsel-file-badge ${selectedDoc.fileType}`} style={{ fontSize: '0.6rem', padding: '1px 5px' }}>
+              {selectedDoc.fileType.toUpperCase()}
+            </span>
+            {onRemoveDocument && (
+              <button
+                type="button"
+                className="counsel-active-doc-remove"
+                title="Remove this document"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onRemoveDocument()
+                }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            )}
+          </div>
+        )}
 
         {/* Search documents */}
         <div className="counsel-search-box">

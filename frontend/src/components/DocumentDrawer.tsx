@@ -171,10 +171,38 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
               {analysis && <SummaryCard analysis={analysis} />}
 
               {analysis?.findings && analysis.findings.length > 0 ? (
-                <div style={{ marginTop: '16px' }}>
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '12px' }}>
-                    Identified Provisions & Risks
-                  </h3>
+                <div style={{ marginTop: '20px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: '14px',
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: '#111827',
+                        margin: 0,
+                      }}
+                    >
+                      Audited Provisions & Key Legal Risks
+                    </h3>
+                    <span
+                      style={{
+                        fontSize: '0.74rem',
+                        color: '#4B5563',
+                        fontWeight: 600,
+                        background: '#F3F4F6',
+                        padding: '3px 8px',
+                        borderRadius: '12px',
+                      }}
+                    >
+                      {analysis.findings.length} Provisions
+                    </span>
+                  </div>
                   {analysis.findings.map((finding, idx) => (
                     <FindingCard
                       key={idx}
