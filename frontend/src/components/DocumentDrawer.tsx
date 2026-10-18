@@ -100,7 +100,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
         </div>
 
         {/* Tab Controls */}
-        <div style={{ padding: '8px 24px', background: '#04100D', borderBottom: '1px solid #0F2922', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ padding: '8px 24px', background: 'var(--bg-card)', borderBottom: '1px solid var(--border-card)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               type="button"
@@ -109,9 +109,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'clauses' ? '#059669' : '#081A16',
-                color: activeTab === 'clauses' ? '#F8FAFC' : '#A7B8B2',
-                borderColor: activeTab === 'clauses' ? '#10B981' : '#0F2922',
+                backgroundColor: activeTab === 'clauses' ? 'var(--accent-emerald)' : 'var(--bg-card)',
+                color: activeTab === 'clauses' ? '#FFFFFF' : 'var(--text-secondary)',
+                borderColor: activeTab === 'clauses' ? 'var(--accent-emerald)' : 'var(--border-card)',
               }}
               onClick={() => setActiveTab('clauses')}
             >
@@ -124,9 +124,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'text' ? '#059669' : '#081A16',
-                color: activeTab === 'text' ? '#F8FAFC' : '#A7B8B2',
-                borderColor: activeTab === 'text' ? '#10B981' : '#0F2922',
+                backgroundColor: activeTab === 'text' ? 'var(--accent-emerald)' : 'var(--bg-card)',
+                color: activeTab === 'text' ? '#FFFFFF' : 'var(--text-secondary)',
+                borderColor: activeTab === 'text' ? 'var(--accent-emerald)' : 'var(--border-card)',
               }}
               onClick={() => setActiveTab('text')}
             >
@@ -139,9 +139,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'qa' ? '#059669' : '#081A16',
-                color: activeTab === 'qa' ? '#F8FAFC' : '#A7B8B2',
-                borderColor: activeTab === 'qa' ? '#10B981' : '#0F2922',
+                backgroundColor: activeTab === 'qa' ? 'var(--accent-emerald)' : 'var(--bg-card)',
+                color: activeTab === 'qa' ? '#FFFFFF' : 'var(--text-secondary)',
+                borderColor: activeTab === 'qa' ? 'var(--accent-emerald)' : 'var(--border-card)',
               }}
               onClick={() => setActiveTab('qa')}
             >
@@ -161,7 +161,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
           )}
 
           {isAnalyzing && (
-            <span style={{ fontSize: '0.75rem', color: '#34D399', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
               Analyzing with Gemma 3n...
             </span>
           )}
@@ -187,7 +187,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                       style={{
                         fontSize: '1rem',
                         fontWeight: 700,
-                        color: '#F8FAFC',
+                        color: 'var(--text-main)',
                         margin: 0,
                       }}
                     >

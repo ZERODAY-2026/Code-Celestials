@@ -78,9 +78,9 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
             /* Elegant Empty State when no dummy documents exist */
             <div
               style={{
-                background: '#061311',
+                background: 'var(--bg-card)',
                 borderRadius: '14px',
-                border: '1px solid #0F2922',
+                border: '1px solid var(--border-card)',
                 padding: '48px 32px',
                 textAlign: 'center',
                 boxShadow: 'var(--shadow-sm)',
@@ -91,13 +91,13 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   width: '64px',
                   height: '64px',
                   borderRadius: '50%',
-                  background: 'rgba(52, 211, 153, 0.1)',
-                  color: '#34D399',
+                  background: 'var(--accent-emerald-bg)',
+                  color: 'var(--accent-emerald)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px auto',
-                  border: '1px solid rgba(52, 211, 153, 0.2)',
+                  border: '1px solid var(--accent-emerald-border)',
                 }}
               >
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -108,10 +108,10 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                 </svg>
               </div>
 
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#F8FAFC', marginBottom: '8px' }}>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
                 No Contracts Loaded Yet
               </h2>
-              <p style={{ fontSize: '0.9rem', color: '#A7B8B2', maxWidth: '480px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', maxWidth: '480px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
                 Upload your PDF, DOCX, or text contracts to perform local, 100% private legal intelligence triage using Gemma 3n.
               </p>
 
@@ -145,13 +145,13 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   style={{
                     marginTop: '28px',
                     padding: '20px',
-                    background: '#04100D',
+                    background: 'var(--bg-card)',
                     borderRadius: '12px',
-                    border: '1px solid #0F2922',
+                    border: '1px solid var(--border-card)',
                     textAlign: 'left',
                   }}
                 >
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#34D399', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--accent-emerald)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     Select a realistic legal agreement to test immediately:
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
@@ -159,8 +159,8 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                       <div
                         key={sample.id}
                         style={{
-                          background: '#081A16',
-                          border: '1px solid #0F2922',
+                          background: 'var(--bg-card)',
+                          border: '1px solid var(--border-card)',
                           borderRadius: '10px',
                           padding: '14px',
                           cursor: 'pointer',
@@ -173,20 +173,20 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                           <span className="counsel-file-badge txt" style={{ textTransform: 'uppercase' }}>
                             {sample.fileType}
                           </span>
-                          <span style={{ fontSize: '0.72rem', color: '#6B857B' }}>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
                             {sample.pages} {sample.pages === 1 ? 'page' : 'pages'}
                           </span>
                         </div>
-                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: '#F8FAFC', marginBottom: '4px' }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: 'var(--text-main)', marginBottom: '4px' }}>
                           {sample.title}
                         </div>
-                        <div style={{ fontSize: '0.75rem', color: '#A7B8B2', marginBottom: '8px' }}>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>
                           Party: {sample.counterparty}
                         </div>
-                        <p style={{ fontSize: '0.73rem', color: '#A7B8B2', lineHeight: 1.4 }}>
+                        <p style={{ fontSize: '0.73rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
                           {sample.description}
                         </p>
-                        <div style={{ marginTop: '10px', fontSize: '0.75rem', color: '#34D399', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <div style={{ marginTop: '10px', fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
                           Load & Analyze →
                         </div>
                       </div>
@@ -199,8 +199,8 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
             /* Documents Table with Real Uploaded Documents */
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                <div style={{ fontSize: '0.88rem', color: '#A7B8B2' }}>
-                  Showing <strong style={{ color: '#F8FAFC' }}>{filteredDocs.length}</strong> loaded documents
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                  Showing <strong style={{ color: 'var(--text-main)' }}>{filteredDocs.length}</strong> loaded documents
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button
@@ -227,12 +227,12 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   style={{
                     marginBottom: '16px',
                     padding: '16px',
-                    background: '#04100D',
+                    background: 'var(--bg-card)',
                     borderRadius: '10px',
-                    border: '1px solid #0F2922',
+                    border: '1px solid var(--border-card)',
                   }}
                 >
-                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#34D399', marginBottom: '10px' }}>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent-emerald)', marginBottom: '10px' }}>
                     Quick-load sample contract into workspace:
                   </div>
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

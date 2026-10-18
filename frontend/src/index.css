@@ -1,64 +1,127 @@
 /* ── CounselDesk — Legal Intelligence Platform Design System ─────────
-   Obsidian Black & Emerald Dark Enterprise Dashboard Theme
-   Palette:
-   - Main Background: Deep obsidian black #020807
-   - Sidebar: Dark emerald obsidian #03120F
-   - Cards / Containers: #061311
-   - Subtle Surfaces: #081714 / #081A16
-   - Primary Accent: Emerald #059669
-   - Bright Accent: Emerald #34D399 / #10B981
-   - Borders: Subtle dark green-gray #0F2922 / #14382F
-   - Text Primary: #F8FAFC
-   - Text Secondary: #A7B8B2
-   - Text Muted: #6B857B
+   Pure Black & Pure White Enterprise Themes with Emerald Accents
+   Theme Modes:
+   - Dark Mode: Pure Black #000000, Borders #1F1F1F, Text #FFFFFF / #B3B3B3
+   - Light Mode: Pure White #FFFFFF, Borders #E5E5E5, Text #111111 / #666666
+   - Brand Accent: Emerald #059669 (Hover #10B981 dark / #047857 light)
 ─────────────────────────────────────────────────────────────────────── */
 
-:root {
-  /* Core Obsidian & Emerald Color Palette */
-  --counsel-bg: #020807;
-  --counsel-sidebar: #03120F;
-  --counsel-sidebar-hover: #07211B;
-  --counsel-sidebar-active: #059669;
-  --counsel-sidebar-border: #0A241E;
-  --counsel-sidebar-text: #A7B8B2;
-  --counsel-sidebar-text-active: #F8FAFC;
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
 
-  --bg-app: #020807;
-  --bg-card: #061311;
-  --bg-card-subtle: #081714;
-  --bg-card-hover: #091F1A;
-  --border-card: #0F2922;
-  --border-subtle: #0A201B;
-  --border-hover: #164237;
-  --border-focus: #34D399;
+  /* Pure Black Dark Theme Foundation */
+  --bg-app: #000000;
+  --bg-sidebar: #000000;
+  --bg-navbar: #000000;
+  --bg-card: #000000;
+  --bg-card-subtle: #000000;
+  --bg-card-hover: #0d0d0d;
+  --bg-input: #000000;
 
-  --text-main: #F8FAFC;
-  --text-secondary: #A7B8B2;
-  --text-muted: #6B857B;
+  --border-card: #1F1F1F;
+  --border-subtle: #1F1F1F;
+  --border-hover: #333333;
+  --border-emerald: #059669;
+
+  --text-main: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --text-muted: #737373;
   --text-dark-green: #34D399;
 
-  /* Brand / Action Colors */
+  --counsel-sidebar: #000000;
+  --counsel-sidebar-hover: #121212;
+  --counsel-sidebar-border: #1F1F1F;
+  --counsel-sidebar-text: #B3B3B3;
+  --counsel-sidebar-text-active: #FFFFFF;
+
+  /* Emerald Accents */
   --btn-primary: #059669;
   --btn-primary-hover: #10B981;
-  --accent-emerald: #10B981;
+  --accent-emerald: #059669;
   --accent-emerald-bright: #34D399;
-  --accent-emerald-light: rgba(16, 185, 129, 0.12);
-  --accent-amber: #F59E0B;
-  --accent-amber-light: rgba(245, 158, 11, 0.12);
-  --accent-rose: #EF4444;
-  --accent-rose-light: rgba(239, 68, 68, 0.12);
-  --accent-blue: #38BDF8;
-  --accent-blue-light: rgba(56, 189, 248, 0.12);
+  --accent-emerald-bg: rgba(5, 150, 105, 0.15);
+  --accent-emerald-border: rgba(5, 150, 105, 0.35);
 
-  /* Typography & Shadows */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
-  --shadow-emerald: 0 0 16px rgba(52, 211, 153, 0.12);
+  --accent-amber: #F59E0B;
+  --accent-amber-bg: rgba(245, 158, 11, 0.15);
+  --accent-amber-border: rgba(245, 158, 11, 0.35);
+
+  --accent-rose: #EF4444;
+  --accent-rose-bg: rgba(239, 68, 68, 0.15);
+  --accent-rose-border: rgba(239, 68, 68, 0.35);
+
+  --accent-blue: #38BDF8;
+  --accent-blue-bg: rgba(56, 189, 248, 0.15);
+  --accent-blue-border: rgba(56, 189, 248, 0.35);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.8);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.9);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.95);
+
+  --scrollbar-track: #000000;
+  --scrollbar-thumb: #1F1F1F;
+  --scrollbar-thumb-hover: #333333;
 }
 
-/* ── Reset ──────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Pure White Light Theme Foundation */
+  --bg-app: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-navbar: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FFFFFF;
+  --bg-card-hover: #F8F9FA;
+  --bg-input: #FFFFFF;
+
+  --border-card: #E5E5E5;
+  --border-subtle: #E5E5E5;
+  --border-hover: #D1D5DB;
+  --border-emerald: #059669;
+
+  --text-main: #111111;
+  --text-secondary: #666666;
+  --text-muted: #888888;
+  --text-dark-green: #059669;
+
+  --counsel-sidebar: #FFFFFF;
+  --counsel-sidebar-hover: #F5F5F5;
+  --counsel-sidebar-border: #E5E5E5;
+  --counsel-sidebar-text: #666666;
+  --counsel-sidebar-text-active: #111111;
+
+  /* Emerald Accents */
+  --btn-primary: #059669;
+  --btn-primary-hover: #047857;
+  --accent-emerald: #059669;
+  --accent-emerald-bright: #059669;
+  --accent-emerald-bg: rgba(5, 150, 105, 0.1);
+  --accent-emerald-border: rgba(5, 150, 105, 0.25);
+
+  --accent-amber: #D97706;
+  --accent-amber-bg: rgba(217, 119, 6, 0.1);
+  --accent-amber-border: rgba(217, 119, 6, 0.25);
+
+  --accent-rose: #DC2626;
+  --accent-rose-bg: rgba(220, 38, 38, 0.1);
+  --accent-rose-border: rgba(220, 38, 38, 0.25);
+
+  --accent-blue: #0284C7;
+  --accent-blue-bg: rgba(2, 132, 199, 0.1);
+  --accent-blue-border: rgba(2, 132, 199, 0.25);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  --scrollbar-track: #FFFFFF;
+  --scrollbar-thumb: #E5E5E5;
+  --scrollbar-thumb-hover: #CCCCCC;
+}
+
+/* ── Reset & Base Typography ────────────────────────────────────────── */
 
 *,
 *::before,
@@ -70,11 +133,12 @@
 
 html, body {
   height: 100%;
-  font-family: var(--font-family);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-app);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 /* ── Scrollbars ─────────────────────────────────────────────────────── */
@@ -85,19 +149,19 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #020807;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0F2922;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #164237;
+  background: var(--scrollbar-thumb-hover);
 }
 
-/* ── Main Layout (Sidebar + Content) ────────────────────────────────── */
+/* ── Main Layout ────────────────────────────────────────────────────── */
 
 .counsel-layout {
   display: flex;
@@ -122,6 +186,7 @@ html, body {
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .counsel-logo-container {
@@ -129,33 +194,33 @@ html, body {
   align-items: center;
   gap: 12px;
   padding: 0 8px 24px 8px;
-  border-bottom: 1px solid #08211A;
+  border-bottom: 1px solid var(--border-card);
 }
 
 .counsel-logo-icon {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(5, 150, 105, 0.25) 0%, rgba(52, 211, 153, 0.15) 100%);
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #34D399;
-  box-shadow: 0 0 12px rgba(52, 211, 153, 0.15);
+  color: var(--accent-emerald);
+  box-shadow: var(--shadow-sm);
 }
 
 .counsel-logo-text h2 {
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #F8FAFC;
+  color: var(--text-main);
   line-height: 1.2;
 }
 
 .counsel-logo-text p {
   font-size: 0.68rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -185,30 +250,29 @@ html, body {
 }
 
 .counsel-nav-item svg {
-  color: #6B857B;
+  color: var(--text-muted);
   transition: color 140ms ease;
   flex-shrink: 0;
 }
 
 .counsel-nav-item:hover {
   background-color: var(--counsel-sidebar-hover);
-  color: #F8FAFC;
+  color: var(--text-main);
 }
 
 .counsel-nav-item:hover svg {
-  color: #34D399;
+  color: var(--accent-emerald);
 }
 
 .counsel-nav-item.active {
-  background: linear-gradient(90deg, rgba(5, 150, 105, 0.24) 0%, rgba(5, 150, 105, 0.05) 100%);
-  color: #F8FAFC;
-  border-left: 3px solid #34D399;
+  background-color: var(--accent-emerald-bg);
+  color: var(--text-main);
+  border-left: 3px solid var(--accent-emerald);
   font-weight: 600;
-  box-shadow: 0 0 16px rgba(52, 211, 153, 0.08);
 }
 
 .counsel-nav-item.active svg {
-  color: #34D399;
+  color: var(--accent-emerald);
 }
 
 .counsel-sidebar-bottom {
@@ -220,11 +284,12 @@ html, body {
 }
 
 .counsel-privacy-box {
-  background: #041612;
-  border: 1px solid #0F332A;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 12px;
   padding: 14px;
   box-shadow: var(--shadow-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .counsel-privacy-header {
@@ -233,21 +298,21 @@ html, body {
   gap: 8px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-main);
   margin-bottom: 6px;
 }
 
 .counsel-privacy-text {
   font-size: 0.7rem;
   line-height: 1.45;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .counsel-privacy-link {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #34D399;
+  color: var(--accent-emerald);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -256,7 +321,6 @@ html, body {
 }
 
 .counsel-privacy-link:hover {
-  color: #6EE7B7;
   text-decoration: underline;
 }
 
@@ -268,6 +332,7 @@ html, body {
   overflow-y: auto;
   max-width: 1540px;
   background-color: var(--bg-app);
+  transition: background-color 0.15s ease;
 }
 
 /* ── Top Bar ────────────────────────────────────────────────────────── */
@@ -284,7 +349,7 @@ html, body {
 .counsel-greeting h1 {
   font-size: 1.55rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -293,7 +358,7 @@ html, body {
 
 .counsel-greeting p {
   font-size: 0.85rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   margin-top: 3px;
   line-height: 1.4;
 }
@@ -310,18 +375,19 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #061311;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   padding: 7px 14px;
   border-radius: 9999px;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: all 140ms ease;
+  color: var(--text-main);
 }
 
 .counsel-model-pill:hover {
-  border-color: #164237;
-  background: #091F1A;
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
 }
 
 .counsel-model-dot {
@@ -329,7 +395,6 @@ html, body {
   height: 8px;
   border-radius: 50%;
   background-color: var(--accent-emerald);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
 .counsel-model-text {
@@ -340,13 +405,13 @@ html, body {
 .counsel-model-title {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #34D399;
+  color: var(--accent-emerald);
   line-height: 1.2;
 }
 
 .counsel-model-subtitle {
   font-size: 0.68rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
 }
 
 /* Active Doc Pill */
@@ -354,12 +419,12 @@ html, body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #061B16;
-  border: 1px solid #0F332A;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   padding: 6px 12px;
   border-radius: 9999px;
   font-size: 0.78rem;
-  color: #F8FAFC;
+  color: var(--text-main);
   box-shadow: var(--shadow-sm);
 }
 
@@ -374,7 +439,7 @@ html, body {
 .counsel-active-doc-remove {
   background: transparent;
   border: none;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -384,15 +449,15 @@ html, body {
 }
 
 .counsel-active-doc-remove:hover {
-  color: #F87171;
-  background: rgba(239, 68, 68, 0.15);
+  color: var(--accent-rose);
+  background: var(--accent-rose-bg);
 }
 
 /* Search Box */
 .counsel-search-box {
   display: flex;
   align-items: center;
-  background: #061311;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 10px;
   padding: 8px 12px;
@@ -402,8 +467,8 @@ html, body {
 }
 
 .counsel-search-box:focus-within {
-  border-color: #34D399;
-  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 2px var(--accent-emerald-bg);
 }
 
 .counsel-search-box input {
@@ -411,45 +476,79 @@ html, body {
   outline: none;
   background: transparent;
   font-size: 0.825rem;
-  color: #F8FAFC;
+  color: var(--text-main);
   margin-left: 8px;
   flex: 1;
 }
 
 .counsel-search-box input::placeholder {
-  color: #6B857B;
+  color: var(--text-muted);
 }
 
 .counsel-kbd {
   font-size: 0.65rem;
   font-weight: 600;
-  color: #A7B8B2;
-  background: #091F1A;
-  border: 1px solid #14352D;
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-card);
   border-radius: 4px;
   padding: 2px 6px;
 }
 
-/* Add Document Button */
+/* ── Theme Toggle Button (Replaces Add Document in Navbar) ──────────── */
+
+.counsel-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.825rem;
+  font-weight: 600;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 140ms ease;
+}
+
+.counsel-theme-toggle:hover {
+  border-color: var(--accent-emerald);
+  color: var(--accent-emerald);
+  background-color: var(--bg-card-hover);
+}
+
+.counsel-theme-toggle svg {
+  flex-shrink: 0;
+  color: var(--accent-emerald);
+}
+
+.counsel-theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-emerald);
+  outline-offset: 2px;
+}
+
+/* Primary Action Button (used elsewhere) */
 .counsel-btn-add {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background-color: var(--btn-primary);
-  color: #F8FAFC;
+  color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 600;
   border: none;
   border-radius: 10px;
   padding: 9px 18px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.35);
+  box-shadow: var(--shadow-sm);
   transition: all 140ms ease;
 }
 
 .counsel-btn-add:hover {
   background-color: var(--btn-primary-hover);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.5);
+  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
@@ -457,14 +556,14 @@ html, body {
   transform: translateY(0);
 }
 
-/* Secondary Button (formerly white button) */
+/* Secondary Button */
 .counsel-btn-white {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #081915;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
-  color: #F8FAFC;
+  color: var(--text-main);
   font-size: 0.825rem;
   font-weight: 600;
   border-radius: 8px;
@@ -474,9 +573,9 @@ html, body {
 }
 
 .counsel-btn-white:hover {
-  background: #0C2620;
-  border-color: #1B5242;
-  color: #34D399;
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  color: var(--accent-emerald);
 }
 
 /* ── Metric Stat Cards ──────────────────────────────────────────────── */
@@ -499,25 +598,10 @@ html, body {
   overflow: hidden;
 }
 
-.counsel-stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: transparent;
-  transition: background 160ms ease;
-}
-
 .counsel-stat-card:hover {
-  border-color: #164237;
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-}
-
-.counsel-stat-card:hover::before {
-  background: linear-gradient(90deg, #059669, #34D399);
 }
 
 .counsel-stat-top {
@@ -538,33 +622,33 @@ html, body {
 }
 
 .counsel-stat-icon.yellow {
-  background: rgba(245, 158, 11, 0.15);
-  color: #F59E0B;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--accent-amber-bg);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber-border);
 }
 
 .counsel-stat-icon.blue {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--accent-blue-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-border);
 }
 
 .counsel-stat-icon.green {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34D399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-border);
 }
 
 .counsel-stat-icon.red {
-  background: rgba(239, 68, 68, 0.15);
-  color: #EF4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--accent-rose-bg);
+  color: var(--accent-rose);
+  border: 1px solid var(--accent-rose-border);
 }
 
 .counsel-stat-title {
   font-size: 0.825rem;
   font-weight: 600;
-  color: #A7B8B2;
+  color: var(--text-secondary);
 }
 
 .counsel-stat-mid {
@@ -577,20 +661,20 @@ html, body {
 .counsel-stat-value {
   font-size: 1.85rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .counsel-stat-unit {
   font-size: 0.78rem;
-  color: #6B857B;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
 .counsel-stat-footer {
   font-size: 0.72rem;
-  color: #6B857B;
+  color: var(--text-muted);
 }
 
 /* ── Content Grid: Left Table + Right Rail ──────────────────────────── */
@@ -622,6 +706,7 @@ html, body {
   border-radius: 14px;
   padding: 22px;
   box-shadow: var(--shadow-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .counsel-card-header {
@@ -634,7 +719,7 @@ html, body {
 .counsel-card-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
   letter-spacing: -0.01em;
 }
 
@@ -644,14 +729,14 @@ html, body {
   gap: 6px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #34D399;
+  color: var(--accent-emerald);
   text-decoration: none;
   cursor: pointer;
   transition: all 120ms ease;
 }
 
 .counsel-link-arrow:hover {
-  color: #6EE7B7;
+  text-decoration: underline;
   transform: translateX(2px);
 }
 
@@ -668,7 +753,7 @@ html, body {
 .counsel-table th {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #6B857B;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 12px 14px;
@@ -677,15 +762,15 @@ html, body {
 
 .counsel-table td {
   padding: 14px;
-  border-bottom: 1px solid #0A201B;
+  border-bottom: 1px solid var(--border-subtle);
   font-size: 0.825rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   vertical-align: middle;
   transition: background-color 100ms ease;
 }
 
 .counsel-table tr:hover td {
-  background-color: #081C17;
+  background-color: var(--bg-card-hover);
 }
 
 .counsel-table tr:last-child td {
@@ -711,26 +796,26 @@ html, body {
 }
 
 .counsel-file-badge.pdf {
-  background: rgba(239, 68, 68, 0.15);
-  color: #F87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--accent-rose-bg);
+  color: var(--accent-rose);
+  border: 1px solid var(--accent-rose-border);
 }
 
 .counsel-file-badge.docx {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--accent-blue-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-border);
 }
 
 .counsel-file-badge.txt {
-  background: rgba(167, 184, 178, 0.15);
-  color: #A7B8B2;
-  border: 1px solid rgba(167, 184, 178, 0.25);
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-card);
 }
 
 .counsel-doc-name {
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-main);
   font-size: 0.85rem;
   line-height: 1.3;
 }
@@ -740,14 +825,14 @@ html, body {
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  color: #6B857B;
+  color: var(--text-muted);
   margin-top: 3px;
 }
 
 .counsel-version-tag {
-  background: rgba(52, 211, 153, 0.12);
-  color: #34D399;
-  border: 1px solid rgba(52, 211, 153, 0.25);
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-border);
   font-size: 0.65rem;
   font-weight: 600;
   padding: 1px 6px;
@@ -766,33 +851,33 @@ html, body {
 }
 
 .counsel-status-pill.needs-review {
-  background: rgba(245, 158, 11, 0.15);
-  color: #FBBF24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--accent-amber-bg);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber-border);
 }
 
 .counsel-status-pill.processing {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--accent-blue-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-border);
 }
 
 .counsel-status-pill.risk-found {
-  background: rgba(239, 68, 68, 0.15);
-  color: #F87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--accent-rose-bg);
+  color: var(--accent-rose);
+  border: 1px solid var(--accent-rose-border);
 }
 
 .counsel-status-pill.reviewed {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34D399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-border);
 }
 
 .counsel-row-delete-btn {
   background: transparent;
   border: none;
-  color: #6B857B;
+  color: var(--text-muted);
   cursor: pointer;
   padding: 6px;
   border-radius: 6px;
@@ -803,15 +888,15 @@ html, body {
 }
 
 .counsel-row-delete-btn:hover {
-  background: rgba(239, 68, 68, 0.15);
-  color: #F87171;
+  background: var(--accent-rose-bg);
+  color: var(--accent-rose);
 }
 
 /* ── Bottom Privacy Assurance Banner ────────────────────────────────── */
 
 .counsel-privacy-banner {
-  background: linear-gradient(135deg, #031410 0%, #061F19 100%);
-  border: 1px solid #0F382E;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 14px;
   padding: 20px 24px;
   display: flex;
@@ -819,6 +904,7 @@ html, body {
   justify-content: space-between;
   gap: 20px;
   box-shadow: var(--shadow-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .counsel-privacy-banner-left {
@@ -836,13 +922,13 @@ html, body {
 .counsel-privacy-banner-text h3 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
   margin-bottom: 3px;
 }
 
 .counsel-privacy-banner-text p {
   font-size: 0.78rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   margin-bottom: 6px;
   line-height: 1.45;
 }
@@ -850,7 +936,7 @@ html, body {
 .counsel-privacy-banner-text a {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #34D399;
+  color: var(--accent-emerald);
   text-decoration: none;
   cursor: pointer;
   display: inline-flex;
@@ -860,7 +946,6 @@ html, body {
 }
 
 .counsel-privacy-banner-text a:hover {
-  color: #6EE7B7;
   text-decoration: underline;
 }
 
@@ -868,13 +953,13 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(5, 150, 105, 0.18);
-  color: #34D399;
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 9999px;
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  border: 1px solid var(--accent-emerald-border);
   white-space: nowrap;
 }
 
@@ -882,7 +967,7 @@ html, body {
 
 .counsel-insight-card {
   padding: 14px 0;
-  border-bottom: 1px solid #0B201B;
+  border-bottom: 1px solid var(--border-subtle);
   transition: all 120ms ease;
 }
 
@@ -907,7 +992,7 @@ html, body {
 .counsel-insight-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
 }
 
 .counsel-badge-priority {
@@ -918,26 +1003,26 @@ html, body {
 }
 
 .counsel-badge-priority.high {
-  background: rgba(239, 68, 68, 0.15);
-  color: #F87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--accent-rose-bg);
+  color: var(--accent-rose);
+  border: 1px solid var(--accent-rose-border);
 }
 
 .counsel-badge-priority.medium {
-  background: rgba(245, 158, 11, 0.15);
-  color: #FBBF24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--accent-amber-bg);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber-border);
 }
 
 .counsel-badge-priority.low {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34D399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-border);
 }
 
 .counsel-insight-desc {
   font-size: 0.78rem;
-  color: #A7B8B2;
+  color: var(--text-secondary);
   line-height: 1.45;
   margin-bottom: 8px;
 }
@@ -947,14 +1032,14 @@ html, body {
   align-items: center;
   justify-content: space-between;
   font-size: 0.7rem;
-  color: #6B857B;
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
 .counsel-progress-bar {
   width: 100%;
   height: 4px;
-  background: #0A221C;
+  background: var(--border-card);
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -966,15 +1051,15 @@ html, body {
 }
 
 .counsel-progress-fill.amber {
-  background: #F59E0B;
+  background: var(--accent-amber);
 }
 
 .counsel-progress-fill.red {
-  background: #EF4444;
+  background: var(--accent-rose);
 }
 
 .counsel-progress-fill.green {
-  background: #10B981;
+  background: var(--accent-emerald);
 }
 
 /* ── Quick Actions ──────────────────────────────────────────────────── */
@@ -988,12 +1073,12 @@ html, body {
   border-radius: 10px;
   font-size: 0.825rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-main);
   text-decoration: none;
   cursor: pointer;
   transition: all 120ms ease;
   margin-bottom: 8px;
-  background: #081915;
+  background: var(--bg-card);
 }
 
 .counsel-quick-action:last-child {
@@ -1001,8 +1086,8 @@ html, body {
 }
 
 .counsel-quick-action:hover {
-  border-color: #1B5242;
-  background: #0C2620;
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
   transform: translateX(2px);
 }
 
@@ -1012,7 +1097,7 @@ html, body {
   gap: 10px;
 }
 
-/* ── Modal & Slide-Over Drawer for Document Analysis ────────────────── */
+/* ── Modal & Slide-Over Drawer ──────────────────────────────────────── */
 
 .counsel-modal-overlay {
   position: fixed;
@@ -1027,7 +1112,7 @@ html, body {
 }
 
 .counsel-modal-dialog {
-  background: #061311;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
@@ -1035,7 +1120,7 @@ html, body {
   max-width: 600px;
   padding: 24px;
   position: relative;
-  color: #F8FAFC;
+  color: var(--text-main);
 }
 
 .counsel-drawer {
@@ -1045,14 +1130,14 @@ html, body {
   bottom: 0;
   width: 760px;
   max-width: 90vw;
-  background: #061311;
+  background: var(--bg-card);
   border-left: 1px solid var(--border-card);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
   z-index: 1001;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: #F8FAFC;
+  color: var(--text-main);
 }
 
 .counsel-drawer-header {
@@ -1061,20 +1146,20 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #04100D;
+  background: var(--bg-card);
 }
 
 .counsel-drawer-body {
   padding: 24px;
   overflow-y: auto;
   flex: 1;
-  background: #061311;
+  background: var(--bg-card);
 }
 
-/* ── Legal Findings & Executive Dossier Card Styles ───────────────── */
+/* ── Legal Findings & Cards ─────────────────────────────────────────── */
 
 .summary-card {
-  background: #081915;
+  background: var(--bg-card);
   border-radius: 12px;
   border: 1px solid var(--border-card);
   box-shadow: var(--shadow-sm);
@@ -1085,7 +1170,7 @@ html, body {
 .summary-card h2 {
   font-size: 1rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1095,20 +1180,20 @@ html, body {
 .summary-text {
   font-size: 0.88rem;
   line-height: 1.65;
-  color: #A7B8B2;
+  color: var(--text-secondary);
 }
 
 .escalation-banner {
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--accent-rose-bg);
+  border: 1px solid var(--accent-rose-border);
   border-radius: 8px;
   padding: 12px 16px;
   margin-top: 14px;
-  color: #F87171;
+  color: var(--accent-rose);
 }
 
 .finding-card {
-  background: #081915;
+  background: var(--bg-card);
   border-radius: 12px;
   border: 1px solid var(--border-card);
   box-shadow: var(--shadow-sm);
@@ -1119,13 +1204,13 @@ html, body {
 }
 
 .finding-card:hover {
-  border-color: #1B5242;
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
 }
 
 .finding-card.active {
-  border-color: #34D399;
-  box-shadow: 0 0 0 1px #34D399, 0 4px 14px rgba(52, 211, 153, 0.12);
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 1px var(--accent-emerald), 0 4px 14px var(--accent-emerald-bg);
 }
 
 .category-badge {
@@ -1136,9 +1221,9 @@ html, body {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--accent-blue-bg);
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue-border);
 }
 
 .confidence-badge {
@@ -1148,9 +1233,9 @@ html, body {
   border-radius: 6px;
   font-size: 0.7rem;
   font-weight: 600;
-  background: rgba(52, 211, 153, 0.15);
-  color: #34D399;
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: var(--accent-emerald-bg);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald-border);
 }
 
 .page-badge {
@@ -1159,9 +1244,9 @@ html, body {
   gap: 5px;
   padding: 5px 10px;
   border-radius: 6px;
-  background: rgba(5, 150, 105, 0.18);
-  border: 1px solid rgba(52, 211, 153, 0.3);
-  color: #34D399;
+  background: var(--accent-emerald-bg);
+  border: 1px solid var(--accent-emerald-border);
+  color: var(--accent-emerald);
   font-size: 0.74rem;
   font-weight: 600;
   cursor: pointer;
@@ -1169,29 +1254,29 @@ html, body {
 }
 
 .page-badge:hover {
-  background: rgba(52, 211, 153, 0.25);
-  border-color: #34D399;
+  background: var(--accent-emerald-border);
 }
 
-/* ── Generic Form & Input Dark Theming ──────────────────────────────── */
+/* ── Generic Form & Input Dark/Light Theming ────────────────────────── */
 
 input[type="text"],
 input[type="search"],
 textarea,
 select {
-  background: #04120F;
+  background: var(--bg-input);
   border: 1px solid var(--border-card);
-  color: #F8FAFC;
+  color: var(--text-main);
   border-radius: 8px;
   font-family: inherit;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 input[type="text"]:focus,
 textarea:focus,
 select:focus {
-  border-color: #34D399;
+  border-color: var(--accent-emerald);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
+  box-shadow: 0 0 0 2px var(--accent-emerald-bg);
 }
 
 /* ── Responsive Layouts ─────────────────────────────────────────────── */

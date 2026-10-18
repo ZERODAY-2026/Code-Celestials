@@ -32,8 +32,32 @@ import { SAMPLE_CONTRACTS, SampleContract, getContractContentForDoc } from './da
 
 const STORAGE_KEY = 'counseldesk_documents'
 const ACTIVITY_STORAGE_KEY = 'counseldesk_activity'
+const THEME_STORAGE_KEY = 'counseldesk_theme'
 
 export function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    try {
+      const saved = localStorage.getItem(THEME_STORAGE_KEY)
+      return saved === 'light' || saved === 'dark' ? saved : 'dark'
+    } catch {
+      return 'dark'
+    }
+  })
+
+  // Apply data-theme attribute to documentElement immediately
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme)
+    } catch (e) {
+      console.warn('Could not persist theme to localStorage:', e)
+    }
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+  }
+
   const [health, setHealth] = useState<HealthResponse | null>(null)
   const [privacy, setPrivacy] = useState<PrivacyStatus | null>(null)
   const [activeNavTab, setActiveNavTab] = useState<string>('documents')
@@ -534,7 +558,6 @@ export function App() {
           health={health}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
-          onAddDocument={() => setIsUploadModalOpen(true)}
           onModelPillClick={() => {
             alert(
               `Local Model Status:\nRuntime: Ollama (127.0.0.1:11434)\nModel: ${health?.model_name || 'gemma3n:4b'}\nPrivacy: 100% Air-Gapped Loopback`
@@ -542,6 +565,8 @@ export function App() {
           }}
           selectedDoc={selectedDoc}
           onRemoveDocument={selectedDoc ? () => handleDeleteDocument(selectedDoc.id) : undefined}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         {/* Dynamic View based on Active Navbar Tab */}

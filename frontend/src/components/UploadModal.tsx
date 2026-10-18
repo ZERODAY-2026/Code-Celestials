@@ -29,10 +29,10 @@ export const UploadModal: React.FC<UploadModalProps> = ({
       <div className="counsel-modal-dialog" onClick={(e) => e.stopPropagation()}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
           <div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#F8FAFC' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)' }}>
               Add Legal Document
             </h3>
-            <p style={{ fontSize: '0.8rem', color: '#A7B8B2', marginTop: '2px' }}>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
               Upload a PDF or TXT contract for local issue-spotting and triage.
             </p>
           </div>
@@ -43,7 +43,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
               background: 'none',
               border: 'none',
               fontSize: '1.4rem',
-              color: '#A7B8B2',
+              color: 'var(--text-secondary)',
               cursor: 'pointer',
               lineHeight: 1,
             }}
@@ -54,11 +54,11 @@ export const UploadModal: React.FC<UploadModalProps> = ({
 
         <div
           style={{
-            border: `2px dashed ${isDragging ? '#34D399' : '#0F382E'}`,
+            border: `2px dashed ${isDragging ? 'var(--accent-emerald)' : 'var(--border-card)'}`,
             borderRadius: '12px',
             padding: '36px 20px',
             textAlign: 'center',
-            backgroundColor: isDragging ? 'rgba(52, 211, 153, 0.08)' : '#041410',
+            backgroundColor: isDragging ? 'var(--accent-emerald-bg)' : 'var(--bg-card)',
             cursor: 'pointer',
             transition: 'all 120ms ease',
           }}
@@ -89,7 +89,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
             disabled={isLoading}
           />
 
-          <div style={{ width: '48px', height: '48px', margin: '0 auto 12px', color: '#34D399' }}>
+          <div style={{ width: '48px', height: '48px', margin: '0 auto 12px', color: 'var(--accent-emerald)' }}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
               <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
               <path d="M12 12v9"/>
@@ -97,21 +97,21 @@ export const UploadModal: React.FC<UploadModalProps> = ({
             </svg>
           </div>
 
-          <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#F8FAFC', marginBottom: '6px' }}>
+          <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '6px' }}>
             {isLoading ? 'Extracting & Ingesting On-Device...' : 'Choose a file or drag & drop here'}
           </div>
-          <div style={{ fontSize: '0.8rem', color: '#A7B8B2', marginBottom: '14px' }}>
+          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '14px' }}>
             Supports PDF (with page-level citations) and Plain Text documents up to 25MB.
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '8px' }}>
-            <span style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#F87171', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
+            <span style={{ background: 'var(--accent-rose-bg)', color: 'var(--accent-rose)', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid var(--accent-rose-border)' }}>
               PDF
             </span>
-            <span style={{ background: 'rgba(167, 184, 178, 0.15)', color: '#A7B8B2', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(167, 184, 178, 0.3)' }}>
+            <span style={{ background: 'var(--bg-card-hover)', color: 'var(--text-secondary)', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid var(--border-card)' }}>
               TXT
             </span>
-            <span style={{ background: 'rgba(52, 211, 153, 0.15)', color: '#34D399', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(52, 211, 153, 0.3)' }}>
+            <span style={{ background: 'var(--accent-emerald-bg)', color: 'var(--accent-emerald)', fontSize: '0.7rem', fontWeight: 600, padding: '3px 8px', borderRadius: '4px', border: '1px solid var(--accent-emerald-border)' }}>
               100% LOCAL
             </span>
           </div>
@@ -122,14 +122,14 @@ export const UploadModal: React.FC<UploadModalProps> = ({
                 style={{
                   width: '28px',
                   height: '28px',
-                  border: '3px solid #0F2922',
-                  borderTopColor: '#34D399',
+                  border: '3px solid var(--border-card)',
+                  borderTopColor: 'var(--accent-emerald)',
                   borderRadius: '50%',
                   margin: '0 auto 8px',
                   animation: 'spin 0.8s linear infinite',
                 }}
               />
-              <div style={{ fontSize: '0.8rem', color: '#34D399', fontWeight: 500 }}>
+              <div style={{ fontSize: '0.8rem', color: 'var(--accent-emerald)', fontWeight: 500 }}>
                 Processing with PyMuPDF & Gemma 3n...
               </div>
             </div>
@@ -137,7 +137,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
         </div>
 
         {error && (
-          <div style={{ marginTop: '14px', padding: '10px 14px', background: 'rgba(239, 68, 68, 0.15)', color: '#F87171', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', fontSize: '0.8rem' }}>
+          <div style={{ marginTop: '14px', padding: '10px 14px', background: 'var(--accent-rose-bg)', color: 'var(--accent-rose)', border: '1px solid var(--accent-rose-border)', borderRadius: '8px', fontSize: '0.8rem' }}>
             {error}
           </div>
         )}
