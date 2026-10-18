@@ -22,6 +22,7 @@ interface DocumentsViewProps {
   analysis: AnalysisResult | null
   dynamicFindings?: Finding[]
   isAnalyzing: boolean
+  onNavigateTab?: (tab: string) => void
 }
 
 export const DocumentsView: React.FC<DocumentsViewProps> = ({
@@ -40,6 +41,7 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
   analysis,
   dynamicFindings,
   isAnalyzing,
+  onNavigateTab,
 }) => {
   const [showSamplePicker, setShowSamplePicker] = useState(false)
 
@@ -76,9 +78,9 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
             /* Elegant Empty State when no dummy documents exist */
             <div
               style={{
-                background: '#FFFFFF',
-                borderRadius: '12px',
-                border: '1px solid #E5E9E7',
+                background: '#061311',
+                borderRadius: '14px',
+                border: '1px solid #0F2922',
                 padding: '48px 32px',
                 textAlign: 'center',
                 boxShadow: 'var(--shadow-sm)',
@@ -89,12 +91,13 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   width: '64px',
                   height: '64px',
                   borderRadius: '50%',
-                  background: '#EDF5F2',
-                  color: '#0D382B',
+                  background: 'rgba(52, 211, 153, 0.1)',
+                  color: '#34D399',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px auto',
+                  border: '1px solid rgba(52, 211, 153, 0.2)',
                 }}
               >
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -105,10 +108,10 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                 </svg>
               </div>
 
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#111827', marginBottom: '8px' }}>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#F8FAFC', marginBottom: '8px' }}>
                 No Contracts Loaded Yet
               </h2>
-              <p style={{ fontSize: '0.9rem', color: '#6B7280', maxWidth: '480px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.9rem', color: '#A7B8B2', maxWidth: '480px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
                 Upload your PDF, DOCX, or text contracts to perform local, 100% private legal intelligence triage using Gemma 3n.
               </p>
 
@@ -142,13 +145,13 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   style={{
                     marginTop: '28px',
                     padding: '20px',
-                    background: '#F8FAF9',
-                    borderRadius: '8px',
-                    border: '1px solid #DCE4E1',
+                    background: '#04100D',
+                    borderRadius: '12px',
+                    border: '1px solid #0F2922',
                     textAlign: 'left',
                   }}
                 >
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0D382B', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#34D399', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     Select a realistic legal agreement to test immediately:
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
@@ -156,9 +159,9 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                       <div
                         key={sample.id}
                         style={{
-                          background: '#FFFFFF',
-                          border: '1px solid #E5E9E7',
-                          borderRadius: '8px',
+                          background: '#081A16',
+                          border: '1px solid #0F2922',
+                          borderRadius: '10px',
                           padding: '14px',
                           cursor: 'pointer',
                           transition: 'all 0.15s ease',
@@ -170,20 +173,20 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                           <span className="counsel-file-badge txt" style={{ textTransform: 'uppercase' }}>
                             {sample.fileType}
                           </span>
-                          <span style={{ fontSize: '0.72rem', color: '#6B7280' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#6B857B' }}>
                             {sample.pages} {sample.pages === 1 ? 'page' : 'pages'}
                           </span>
                         </div>
-                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: '#111827', marginBottom: '4px' }}>
+                        <div style={{ fontWeight: 600, fontSize: '0.88rem', color: '#F8FAFC', marginBottom: '4px' }}>
                           {sample.title}
                         </div>
-                        <div style={{ fontSize: '0.75rem', color: '#6B7280', marginBottom: '8px' }}>
+                        <div style={{ fontSize: '0.75rem', color: '#A7B8B2', marginBottom: '8px' }}>
                           Party: {sample.counterparty}
                         </div>
-                        <p style={{ fontSize: '0.73rem', color: '#4B5563', lineHeight: 1.4 }}>
+                        <p style={{ fontSize: '0.73rem', color: '#A7B8B2', lineHeight: 1.4 }}>
                           {sample.description}
                         </p>
-                        <div style={{ marginTop: '10px', fontSize: '0.75rem', color: '#0D382B', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <div style={{ marginTop: '10px', fontSize: '0.75rem', color: '#34D399', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
                           Load & Analyze →
                         </div>
                       </div>
@@ -196,8 +199,8 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
             /* Documents Table with Real Uploaded Documents */
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                <div style={{ fontSize: '0.88rem', color: '#4B5563' }}>
-                  Showing <strong style={{ color: '#111827' }}>{filteredDocs.length}</strong> loaded documents
+                <div style={{ fontSize: '0.88rem', color: '#A7B8B2' }}>
+                  Showing <strong style={{ color: '#F8FAFC' }}>{filteredDocs.length}</strong> loaded documents
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button
@@ -224,12 +227,12 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
                   style={{
                     marginBottom: '16px',
                     padding: '16px',
-                    background: '#F8FAF9',
-                    borderRadius: '8px',
-                    border: '1px solid #DCE4E1',
+                    background: '#04100D',
+                    borderRadius: '10px',
+                    border: '1px solid #0F2922',
                   }}
                 >
-                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0D382B', marginBottom: '10px' }}>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#34D399', marginBottom: '10px' }}>
                     Quick-load sample contract into workspace:
                   </div>
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -276,14 +279,17 @@ export const DocumentsView: React.FC<DocumentsViewProps> = ({
         <InsightsRail
           dynamicFindings={dynamicFindings}
           onQuickAction={(action) => {
-            if (action === 'start-review' || action === 'extract-clauses') {
-              if (selectedDoc) {
-                onOpenDrawer()
-              } else {
-                onOpenUpload()
-              }
+            if (action === 'start-review') {
+              if (onNavigateTab) onNavigateTab('contract-review')
+              else if (selectedDoc) onOpenDrawer()
+              else onOpenUpload()
+            } else if (action === 'extract-clauses') {
+              if (onNavigateTab) onNavigateTab('clause-extraction')
+              else if (selectedDoc) onOpenDrawer()
+              else onOpenUpload()
             } else if (action === 'generate-report') {
-              onOpenDrawer()
+              if (onNavigateTab) onNavigateTab('reports')
+              else onOpenDrawer()
             }
           }}
           onViewAllInsights={onOpenDrawer}

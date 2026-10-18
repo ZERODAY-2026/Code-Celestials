@@ -562,6 +562,7 @@ export function App() {
             analysis={analysis}
             dynamicFindings={analysis?.findings}
             isAnalyzing={isAnalyzing}
+            onNavigateTab={(tab) => setActiveNavTab(tab)}
           />
         )}
 

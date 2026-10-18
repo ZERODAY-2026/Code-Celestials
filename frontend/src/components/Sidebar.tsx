@@ -151,7 +151,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Privacy Card */}
         <div className="counsel-privacy-box">
           <div className="counsel-privacy-header">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               <path d="m9 12 2 2 4-4"/>
             </svg>
@@ -163,18 +163,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="counsel-privacy-link" onClick={onLearnMorePrivacy}>
             Learn more →
           </span>
-        </div>
-
-        {/* User Profile */}
-        <div className="counsel-user-profile">
-          <div className="counsel-user-avatar">AR</div>
-          <div className="counsel-user-info">
-            <div className="counsel-user-name">Arjun Rao</div>
-            <div className="counsel-user-role">Legal Team</div>
-          </div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8CAEA2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
         </div>
       </div>
     </aside>

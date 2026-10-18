@@ -1,41 +1,61 @@
-/* ── CounselDesk — Legal Intelligence Platform Design System ───────── */
+/* ── CounselDesk — Legal Intelligence Platform Design System ─────────
+   Obsidian Black & Emerald Dark Enterprise Dashboard Theme
+   Palette:
+   - Main Background: Deep obsidian black #020807
+   - Sidebar: Dark emerald obsidian #03120F
+   - Cards / Containers: #061311
+   - Subtle Surfaces: #081714 / #081A16
+   - Primary Accent: Emerald #059669
+   - Bright Accent: Emerald #34D399 / #10B981
+   - Borders: Subtle dark green-gray #0F2922 / #14382F
+   - Text Primary: #F8FAFC
+   - Text Secondary: #A7B8B2
+   - Text Muted: #6B857B
+─────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* CounselDesk Color Palette */
-  --counsel-sidebar: #09231A;
-  --counsel-sidebar-hover: #103428;
-  --counsel-sidebar-active: #FFFFFF;
-  --counsel-sidebar-text: #9EB6AD;
-  --counsel-sidebar-text-active: #09231A;
+  /* Core Obsidian & Emerald Color Palette */
+  --counsel-bg: #020807;
+  --counsel-sidebar: #03120F;
+  --counsel-sidebar-hover: #07211B;
+  --counsel-sidebar-active: #059669;
+  --counsel-sidebar-border: #0A241E;
+  --counsel-sidebar-text: #A7B8B2;
+  --counsel-sidebar-text-active: #F8FAFC;
 
-  --bg-app: #F8FAF9;
-  --bg-card: #FFFFFF;
-  --bg-card-subtle: #F9FAFB;
-  --border-card: #E5E9E7;
-  --border-subtle: #EDF1EF;
+  --bg-app: #020807;
+  --bg-card: #061311;
+  --bg-card-subtle: #081714;
+  --bg-card-hover: #091F1A;
+  --border-card: #0F2922;
+  --border-subtle: #0A201B;
+  --border-hover: #164237;
+  --border-focus: #34D399;
 
-  --text-main: #111827;
-  --text-secondary: #4B5563;
-  --text-muted: #9CA3AF;
-  --text-dark-green: #0A281E;
+  --text-main: #F8FAFC;
+  --text-secondary: #A7B8B2;
+  --text-muted: #6B857B;
+  --text-dark-green: #34D399;
 
   /* Brand / Action Colors */
-  --btn-primary: #0D382B;
-  --btn-primary-hover: #134E3C;
+  --btn-primary: #059669;
+  --btn-primary-hover: #10B981;
   --accent-emerald: #10B981;
-  --accent-emerald-light: #D1FAE5;
+  --accent-emerald-bright: #34D399;
+  --accent-emerald-light: rgba(16, 185, 129, 0.12);
   --accent-amber: #F59E0B;
-  --accent-amber-light: #FEF3C7;
+  --accent-amber-light: rgba(245, 158, 11, 0.12);
   --accent-rose: #EF4444;
-  --accent-rose-light: #FEE2E2;
-  --accent-blue: #3B82F6;
-  --accent-blue-light: #DBEAFE;
+  --accent-rose-light: rgba(239, 68, 68, 0.12);
+  --accent-blue: #38BDF8;
+  --accent-blue-light: rgba(56, 189, 248, 0.12);
 
-  /* Typography */
+  /* Typography & Shadows */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
+  --shadow-emerald: 0 0 16px rgba(52, 211, 153, 0.12);
 }
 
 /* ── Reset ──────────────────────────────────────────────────────────── */
@@ -57,12 +77,33 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Scrollbars ─────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020807;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F2922;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #164237;
+}
+
 /* ── Main Layout (Sidebar + Content) ────────────────────────────────── */
 
 .counsel-layout {
   display: flex;
   min-height: 100vh;
   width: 100%;
+  background-color: var(--bg-app);
 }
 
 /* ── Sidebar ────────────────────────────────────────────────────────── */
@@ -70,12 +111,17 @@ html, body {
 .counsel-sidebar {
   width: 250px;
   background-color: var(--counsel-sidebar);
+  border-right: 1px solid var(--counsel-sidebar-border);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 24px 16px;
   flex-shrink: 0;
-  color: #FFFFFF;
+  color: var(--text-main);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .counsel-logo-container {
@@ -83,28 +129,33 @@ html, body {
   align-items: center;
   gap: 12px;
   padding: 0 8px 24px 8px;
+  border-bottom: 1px solid #08211A;
 }
 
 .counsel-logo-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.25) 0%, rgba(52, 211, 153, 0.15) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #34D399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.15);
 }
 
 .counsel-logo-text h2 {
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #FFFFFF;
+  color: #F8FAFC;
   line-height: 1.2;
 }
 
 .counsel-logo-text p {
   font-size: 0.68rem;
-  color: #7DA295;
+  color: #A7B8B2;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -114,37 +165,50 @@ html, body {
   flex-direction: column;
   gap: 4px;
   list-style: none;
-  margin-top: 8px;
+  margin-top: 14px;
 }
 
 .counsel-nav-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 9px 14px;
+  padding: 10px 14px;
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--counsel-sidebar-text);
   cursor: pointer;
-  transition: all 120ms ease;
+  transition: all 140ms ease;
   user-select: none;
   text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.counsel-nav-item svg {
+  color: #6B857B;
+  transition: color 140ms ease;
+  flex-shrink: 0;
 }
 
 .counsel-nav-item:hover {
   background-color: var(--counsel-sidebar-hover);
-  color: #FFFFFF;
+  color: #F8FAFC;
+}
+
+.counsel-nav-item:hover svg {
+  color: #34D399;
 }
 
 .counsel-nav-item.active {
-  background-color: #FFFFFF;
-  color: var(--counsel-sidebar-text-active);
+  background: linear-gradient(90deg, rgba(5, 150, 105, 0.24) 0%, rgba(5, 150, 105, 0.05) 100%);
+  color: #F8FAFC;
+  border-left: 3px solid #34D399;
   font-weight: 600;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.08);
 }
 
 .counsel-nav-item.active svg {
-  color: var(--counsel-sidebar-text-active);
+  color: #34D399;
 }
 
 .counsel-sidebar-bottom {
@@ -152,14 +216,15 @@ html, body {
   flex-direction: column;
   gap: 16px;
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 20px;
 }
 
 .counsel-privacy-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: #041612;
+  border: 1px solid #0F332A;
+  border-radius: 12px;
   padding: 14px;
+  box-shadow: var(--shadow-sm);
 }
 
 .counsel-privacy-header {
@@ -168,79 +233,41 @@ html, body {
   gap: 8px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #F8FAFC;
   margin-bottom: 6px;
 }
 
 .counsel-privacy-text {
   font-size: 0.7rem;
   line-height: 1.45;
-  color: #8CAEA2;
+  color: #A7B8B2;
   margin-bottom: 8px;
 }
 
 .counsel-privacy-link {
   font-size: 0.72rem;
-  font-weight: 500;
-  color: #FFFFFF;
+  font-weight: 600;
+  color: #34D399;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   cursor: pointer;
+  transition: all 120ms ease;
 }
 
 .counsel-privacy-link:hover {
+  color: #6EE7B7;
   text-decoration: underline;
 }
 
-.counsel-user-profile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 14px;
-  cursor: pointer;
-}
-
-.counsel-user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #17382B;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #FFFFFF;
-}
-
-.counsel-user-info {
-  flex: 1;
-  margin-left: 10px;
-}
-
-.counsel-user-name {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  line-height: 1.2;
-}
-
-.counsel-user-role {
-  font-size: 0.68rem;
-  color: #8CAEA2;
-}
-
-/* ── Content Area ───────────────────────────────────────────────────── */
+/* ── Main Content Area ──────────────────────────────────────────────── */
 
 .counsel-main {
   flex: 1;
-  padding: 24px 36px 36px 36px;
+  padding: 28px 36px 36px 36px;
   overflow-y: auto;
   max-width: 1540px;
+  background-color: var(--bg-app);
 }
 
 /* ── Top Bar ────────────────────────────────────────────────────────── */
@@ -257,47 +284,52 @@ html, body {
 .counsel-greeting h1 {
   font-size: 1.55rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #F8FAFC;
   display: flex;
   align-items: center;
   gap: 8px;
+  letter-spacing: -0.015em;
 }
 
 .counsel-greeting p {
   font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-top: 2px;
+  color: #A7B8B2;
+  margin-top: 3px;
+  line-height: 1.4;
 }
 
 .counsel-actions-group {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Model Status Pill */
 .counsel-model-pill {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
+  gap: 10px;
+  background: #061311;
   border: 1px solid var(--border-card);
-  padding: 6px 14px;
+  padding: 7px 14px;
   border-radius: 9999px;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: all 120ms ease;
+  transition: all 140ms ease;
 }
 
 .counsel-model-pill:hover {
-  border-color: #CBD5E1;
+  border-color: #164237;
+  background: #091F1A;
 }
 
 .counsel-model-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: var(--accent-emerald);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
 .counsel-model-text {
@@ -308,25 +340,70 @@ html, body {
 .counsel-model-title {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #15803D;
+  color: #34D399;
   line-height: 1.2;
 }
 
 .counsel-model-subtitle {
   font-size: 0.68rem;
-  color: #6B7280;
+  color: #A7B8B2;
+}
+
+/* Active Doc Pill */
+.counsel-active-doc-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #061B16;
+  border: 1px solid #0F332A;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  color: #F8FAFC;
+  box-shadow: var(--shadow-sm);
+}
+
+.counsel-active-doc-name {
+  font-weight: 600;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.counsel-active-doc-remove {
+  background: transparent;
+  border: none;
+  color: #A7B8B2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: all 120ms ease;
+}
+
+.counsel-active-doc-remove:hover {
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.15);
 }
 
 /* Search Box */
 .counsel-search-box {
   display: flex;
   align-items: center;
-  background: #FFFFFF;
+  background: #061311;
   border: 1px solid var(--border-card);
   border-radius: 10px;
   padding: 8px 12px;
   width: 240px;
   box-shadow: var(--shadow-sm);
+  transition: all 140ms ease;
+}
+
+.counsel-search-box:focus-within {
+  border-color: #34D399;
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
 }
 
 .counsel-search-box input {
@@ -334,23 +411,23 @@ html, body {
   outline: none;
   background: transparent;
   font-size: 0.825rem;
-  color: var(--text-main);
+  color: #F8FAFC;
   margin-left: 8px;
   flex: 1;
 }
 
 .counsel-search-box input::placeholder {
-  color: #9CA3AF;
+  color: #6B857B;
 }
 
 .counsel-kbd {
   font-size: 0.65rem;
   font-weight: 600;
-  color: #6B7280;
-  background: #F3F4F6;
-  border: 1px solid #E5E7EB;
+  color: #A7B8B2;
+  background: #091F1A;
+  border: 1px solid #14352D;
   border-radius: 4px;
-  padding: 2px 5px;
+  padding: 2px 6px;
 }
 
 /* Add Document Button */
@@ -359,19 +436,47 @@ html, body {
   align-items: center;
   gap: 6px;
   background-color: var(--btn-primary);
-  color: #FFFFFF;
+  color: #F8FAFC;
   font-size: 0.85rem;
   font-weight: 600;
   border: none;
   border-radius: 10px;
-  padding: 10px 18px;
+  padding: 9px 18px;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: background-color 120ms ease;
+  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.35);
+  transition: all 140ms ease;
 }
 
 .counsel-btn-add:hover {
   background-color: var(--btn-primary-hover);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.5);
+  transform: translateY(-1px);
+}
+
+.counsel-btn-add:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button (formerly white button) */
+.counsel-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #081915;
+  border: 1px solid var(--border-card);
+  color: #F8FAFC;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.counsel-btn-white:hover {
+  background: #0C2620;
+  border-color: #1B5242;
+  color: #34D399;
 }
 
 /* ── Metric Stat Cards ──────────────────────────────────────────────── */
@@ -384,16 +489,35 @@ html, body {
 }
 
 .counsel-stat-card {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 12px;
-  padding: 16px 20px;
+  border-radius: 14px;
+  padding: 18px 20px;
   box-shadow: var(--shadow-sm);
-  transition: border-color 120ms ease;
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.counsel-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 160ms ease;
 }
 
 .counsel-stat-card:hover {
-  border-color: #CBD5E1;
+  border-color: #164237;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.counsel-stat-card:hover::before {
+  background: linear-gradient(90deg, #059669, #34D399);
 }
 
 .counsel-stat-top {
@@ -404,63 +528,69 @@ html, body {
 }
 
 .counsel-stat-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .counsel-stat-icon.yellow {
-  background: var(--accent-amber-light);
-  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .counsel-stat-icon.blue {
-  background: var(--accent-blue-light);
-  color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .counsel-stat-icon.green {
-  background: var(--accent-emerald-light);
-  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .counsel-stat-icon.red {
-  background: var(--accent-rose-light);
-  color: var(--accent-rose);
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .counsel-stat-title {
   font-size: 0.825rem;
   font-weight: 600;
-  color: #4B5563;
+  color: #A7B8B2;
 }
 
 .counsel-stat-mid {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 4px;
 }
 
 .counsel-stat-value {
-  font-size: 1.7rem;
+  font-size: 1.85rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #F8FAFC;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .counsel-stat-unit {
   font-size: 0.78rem;
-  color: #6B7280;
+  color: #6B857B;
   font-weight: 500;
 }
 
 .counsel-stat-footer {
   font-size: 0.72rem;
-  color: #9CA3AF;
+  color: #6B857B;
 }
 
 /* ── Content Grid: Left Table + Right Rail ──────────────────────────── */
@@ -487,10 +617,10 @@ html, body {
 /* ── Recent Documents Table Card ────────────────────────────────────── */
 
 .counsel-card {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 14px;
-  padding: 20px;
+  padding: 22px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -504,22 +634,25 @@ html, body {
 .counsel-card-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #F8FAFC;
+  letter-spacing: -0.01em;
 }
 
 .counsel-link-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #374151;
+  color: #34D399;
   text-decoration: none;
   cursor: pointer;
+  transition: all 120ms ease;
 }
 
 .counsel-link-arrow:hover {
-  color: var(--btn-primary);
+  color: #6EE7B7;
+  transform: translateX(2px);
 }
 
 .counsel-table-wrapper {
@@ -535,27 +668,28 @@ html, body {
 .counsel-table th {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #9CA3AF;
+  color: #6B857B;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.06em;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-card);
 }
 
 .counsel-table td {
   padding: 14px;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  border-bottom: 1px solid #0A201B;
+  font-size: 0.825rem;
+  color: #A7B8B2;
   vertical-align: middle;
+  transition: background-color 100ms ease;
+}
+
+.counsel-table tr:hover td {
+  background-color: #081C17;
 }
 
 .counsel-table tr:last-child td {
   border-bottom: none;
-}
-
-.counsel-table tr:hover td {
-  background-color: #F9FAFB;
 }
 
 .counsel-doc-cell {
@@ -573,49 +707,50 @@ html, body {
   justify-content: center;
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 .counsel-file-badge.pdf {
-  background: #FEE2E2;
-  color: #DC2626;
-  border: 1px solid #FECACA;
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .counsel-file-badge.docx {
-  background: #DBEAFE;
-  color: #2563EB;
-  border: 1px solid #BFDBFE;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .counsel-file-badge.txt {
-  background: #F3F4F6;
-  color: #4B5563;
-  border: 1px solid #E5E7EB;
+  background: rgba(167, 184, 178, 0.15);
+  color: #A7B8B2;
+  border: 1px solid rgba(167, 184, 178, 0.25);
 }
 
 .counsel-doc-name {
   font-weight: 600;
-  color: var(--text-main);
-  font-size: 0.825rem;
+  color: #F8FAFC;
+  font-size: 0.85rem;
   line-height: 1.3;
 }
 
 .counsel-doc-meta {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.7rem;
-  color: #9CA3AF;
-  margin-top: 2px;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #6B857B;
+  margin-top: 3px;
 }
 
 .counsel-version-tag {
-  background: #E8F5E9;
-  color: #2E7D32;
+  background: rgba(52, 211, 153, 0.12);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.25);
   font-size: 0.65rem;
   font-weight: 600;
-  padding: 1px 5px;
+  padding: 1px 6px;
   border-radius: 4px;
 }
 
@@ -627,39 +762,63 @@ html, body {
   border-radius: 9999px;
   font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .counsel-status-pill.needs-review {
-  background: #FEF3C7;
-  color: #D97706;
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .counsel-status-pill.processing {
-  background: #DBEAFE;
-  color: #2563EB;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .counsel-status-pill.risk-found {
-  background: #FEE2E2;
-  color: #DC2626;
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .counsel-status-pill.reviewed {
-  background: #D1FAE5;
-  color: #059669;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.counsel-row-delete-btn {
+  background: transparent;
+  border: none;
+  color: #6B857B;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 120ms ease;
+}
+
+.counsel-row-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
 }
 
 /* ── Bottom Privacy Assurance Banner ────────────────────────────────── */
 
 .counsel-privacy-banner {
-  background: #F0FDF4;
-  border: 1px solid #BBF7D0;
+  background: linear-gradient(135deg, #031410 0%, #061F19 100%);
+  border: 1px solid #0F382E;
   border-radius: 14px;
   padding: 20px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 .counsel-privacy-banner-left {
@@ -677,25 +836,31 @@ html, body {
 .counsel-privacy-banner-text h3 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #065F46;
-  margin-bottom: 2px;
+  color: #F8FAFC;
+  margin-bottom: 3px;
 }
 
 .counsel-privacy-banner-text p {
   font-size: 0.78rem;
-  color: #047857;
-  margin-bottom: 4px;
+  color: #A7B8B2;
+  margin-bottom: 6px;
+  line-height: 1.45;
 }
 
 .counsel-privacy-banner-text a {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #065F46;
+  color: #34D399;
   text-decoration: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 120ms ease;
 }
 
 .counsel-privacy-banner-text a:hover {
+  color: #6EE7B7;
   text-decoration: underline;
 }
 
@@ -703,13 +868,13 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #DCFCE7;
-  color: #15803D;
+  background: rgba(5, 150, 105, 0.18);
+  color: #34D399;
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 9999px;
-  border: 1px solid #86EFAC;
+  border: 1px solid rgba(52, 211, 153, 0.3);
   white-space: nowrap;
 }
 
@@ -717,7 +882,8 @@ html, body {
 
 .counsel-insight-card {
   padding: 14px 0;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid #0B201B;
+  transition: all 120ms ease;
 }
 
 .counsel-insight-card:last-child {
@@ -741,29 +907,37 @@ html, body {
 .counsel-insight-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #F8FAFC;
 }
 
 .counsel-badge-priority {
   font-size: 0.65rem;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 4px;
 }
 
 .counsel-badge-priority.high {
-  background: #FEE2E2;
-  color: #DC2626;
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.counsel-badge-priority.medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .counsel-badge-priority.low {
-  background: #D1FAE5;
-  color: #059669;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .counsel-insight-desc {
   font-size: 0.78rem;
-  color: #4B5563;
+  color: #A7B8B2;
   line-height: 1.45;
   margin-bottom: 8px;
 }
@@ -773,14 +947,14 @@ html, body {
   align-items: center;
   justify-content: space-between;
   font-size: 0.7rem;
-  color: #9CA3AF;
-  margin-bottom: 4px;
+  color: #6B857B;
+  margin-bottom: 6px;
 }
 
 .counsel-progress-bar {
   width: 100%;
   height: 4px;
-  background: #E5E7EB;
+  background: #0A221C;
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -788,6 +962,7 @@ html, body {
 .counsel-progress-fill {
   height: 100%;
   border-radius: 9999px;
+  transition: width 0.3s ease;
 }
 
 .counsel-progress-fill.amber {
@@ -811,14 +986,14 @@ html, body {
   padding: 12px 14px;
   border: 1px solid var(--border-card);
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   font-weight: 600;
-  color: #374151;
+  color: #F8FAFC;
   text-decoration: none;
   cursor: pointer;
   transition: all 120ms ease;
   margin-bottom: 8px;
-  background: #FFFFFF;
+  background: #081915;
 }
 
 .counsel-quick-action:last-child {
@@ -826,8 +1001,9 @@ html, body {
 }
 
 .counsel-quick-action:hover {
-  border-color: #CBD5E1;
-  background: #F9FAFB;
+  border-color: #1B5242;
+  background: #0C2620;
+  transform: translateX(2px);
 }
 
 .counsel-quick-action-left {
@@ -841,8 +1017,8 @@ html, body {
 .counsel-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -851,13 +1027,15 @@ html, body {
 }
 
 .counsel-modal-dialog {
-  background: #FFFFFF;
+  background: #061311;
+  border: 1px solid var(--border-card);
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
   width: 100%;
   max-width: 600px;
   padding: 24px;
   position: relative;
+  color: #F8FAFC;
 }
 
 .counsel-drawer {
@@ -867,12 +1045,14 @@ html, body {
   bottom: 0;
   width: 760px;
   max-width: 90vw;
-  background: #FFFFFF;
-  box-shadow: -10px 0 25px -5px rgba(0, 0, 0, 0.1);
+  background: #061311;
+  border-left: 1px solid var(--border-card);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
   z-index: 1001;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  color: #F8FAFC;
 }
 
 .counsel-drawer-header {
@@ -881,44 +1061,23 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #F9FAFB;
+  background: #04100D;
 }
 
 .counsel-drawer-body {
   padding: 24px;
   overflow-y: auto;
   flex: 1;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .counsel-content-grid {
-    grid-template-columns: 1fr;
-  }
-  .counsel-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 860px) {
-  .counsel-sidebar {
-    display: none;
-  }
-  .counsel-main {
-    padding: 16px;
-  }
-  .counsel-stats-grid {
-    grid-template-columns: 1fr;
-  }
+  background: #061311;
 }
 
 /* ── Legal Findings & Executive Dossier Card Styles ───────────────── */
 
 .summary-card {
-  background: #FFFFFF;
+  background: #081915;
   border-radius: 12px;
   border: 1px solid var(--border-card);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-sm);
   padding: 20px 24px;
   margin-bottom: 16px;
 }
@@ -926,7 +1085,7 @@ html, body {
 .summary-card h2 {
   font-size: 1rem;
   font-weight: 700;
-  color: #111827;
+  color: #F8FAFC;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -936,22 +1095,23 @@ html, body {
 .summary-text {
   font-size: 0.88rem;
   line-height: 1.65;
-  color: #374151;
+  color: #A7B8B2;
 }
 
 .escalation-banner {
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 8px;
   padding: 12px 16px;
   margin-top: 14px;
+  color: #F87171;
 }
 
 .finding-card {
-  background: #FFFFFF;
+  background: #081915;
   border-radius: 12px;
   border: 1px solid var(--border-card);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-sm);
   padding: 18px 20px;
   margin-bottom: 14px;
   transition: all 140ms ease;
@@ -959,13 +1119,13 @@ html, body {
 }
 
 .finding-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: #1B5242;
+  box-shadow: var(--shadow-md);
 }
 
 .finding-card.active {
-  border-color: #0D382B;
-  box-shadow: 0 0 0 1px #0D382B, 0 4px 12px rgba(13, 56, 43, 0.08);
+  border-color: #34D399;
+  box-shadow: 0 0 0 1px #34D399, 0 4px 14px rgba(52, 211, 153, 0.12);
 }
 
 .category-badge {
@@ -976,9 +1136,9 @@ html, body {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  background: #EFF6FF;
-  color: #1D4ED8;
-  border: 1px solid #BFDBFE;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .confidence-badge {
@@ -988,9 +1148,9 @@ html, body {
   border-radius: 6px;
   font-size: 0.7rem;
   font-weight: 600;
-  background: #ECFDF5;
-  color: #065F46;
-  border: 1px solid #A7F3D0;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
 .page-badge {
@@ -999,9 +1159,9 @@ html, body {
   gap: 5px;
   padding: 5px 10px;
   border-radius: 6px;
-  background: #F0FDF4;
-  border: 1px solid #BBF7D0;
-  color: #065F46;
+  background: rgba(5, 150, 105, 0.18);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: #34D399;
   font-size: 0.74rem;
   font-weight: 600;
   cursor: pointer;
@@ -1009,6 +1169,82 @@ html, body {
 }
 
 .page-badge:hover {
-  background: #DCFCE7;
-  border-color: #86EFAC;
+  background: rgba(52, 211, 153, 0.25);
+  border-color: #34D399;
+}
+
+/* ── Generic Form & Input Dark Theming ──────────────────────────────── */
+
+input[type="text"],
+input[type="search"],
+textarea,
+select {
+  background: #04120F;
+  border: 1px solid var(--border-card);
+  color: #F8FAFC;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #34D399;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
+}
+
+/* ── Responsive Layouts ─────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .counsel-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .counsel-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .counsel-main {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .counsel-sidebar {
+    width: 200px;
+  }
+  .counsel-main {
+    padding: 16px;
+  }
+  .counsel-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .counsel-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .counsel-actions-group {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .counsel-search-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .counsel-layout {
+    flex-direction: column;
+  }
+  .counsel-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--counsel-sidebar-border);
+  }
+  .counsel-nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
 }

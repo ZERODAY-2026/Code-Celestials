@@ -71,14 +71,14 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
               <span className={`counsel-file-badge ${docType.toLowerCase()}`}>
                 {docType.toUpperCase()}
               </span>
-              <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#111827' }}>
+              <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#F8FAFC' }}>
                 {docTitle}
               </h2>
               <span className={`counsel-status-pill ${getStatusClass(docStatus)}`}>
                 {docStatus}
               </span>
             </div>
-            <div style={{ fontSize: '0.75rem', color: '#6B7280' }}>
+            <div style={{ fontSize: '0.75rem', color: '#A7B8B2' }}>
               {extraction ? `${extraction.total_chars.toLocaleString()} chars • ${extraction.spans.length} source spans` : 'Ready for local inspection'}
             </div>
           </div>
@@ -90,7 +90,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
               background: 'none',
               border: 'none',
               fontSize: '1.6rem',
-              color: '#9CA3AF',
+              color: '#A7B8B2',
               cursor: 'pointer',
               lineHeight: 1,
             }}
@@ -100,7 +100,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
         </div>
 
         {/* Tab Controls */}
-        <div style={{ padding: '8px 24px', background: '#F8FAF9', borderBottom: '1px solid #E5E9E7', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ padding: '8px 24px', background: '#04100D', borderBottom: '1px solid #0F2922', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               type="button"
@@ -109,8 +109,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'clauses' ? '#0D382B' : '#FFFFFF',
-                color: activeTab === 'clauses' ? '#FFFFFF' : '#374151',
+                backgroundColor: activeTab === 'clauses' ? '#059669' : '#081A16',
+                color: activeTab === 'clauses' ? '#F8FAFC' : '#A7B8B2',
+                borderColor: activeTab === 'clauses' ? '#10B981' : '#0F2922',
               }}
               onClick={() => setActiveTab('clauses')}
             >
@@ -123,8 +124,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'text' ? '#0D382B' : '#FFFFFF',
-                color: activeTab === 'text' ? '#FFFFFF' : '#374151',
+                backgroundColor: activeTab === 'text' ? '#059669' : '#081A16',
+                color: activeTab === 'text' ? '#F8FAFC' : '#A7B8B2',
+                borderColor: activeTab === 'text' ? '#10B981' : '#0F2922',
               }}
               onClick={() => setActiveTab('text')}
             >
@@ -137,8 +139,9 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                 padding: '6px 14px',
                 margin: 0,
                 fontSize: '0.78rem',
-                backgroundColor: activeTab === 'qa' ? '#0D382B' : '#FFFFFF',
-                color: activeTab === 'qa' ? '#FFFFFF' : '#374151',
+                backgroundColor: activeTab === 'qa' ? '#059669' : '#081A16',
+                color: activeTab === 'qa' ? '#F8FAFC' : '#A7B8B2',
+                borderColor: activeTab === 'qa' ? '#10B981' : '#0F2922',
               }}
               onClick={() => setActiveTab('qa')}
             >
@@ -158,7 +161,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
           )}
 
           {isAnalyzing && (
-            <span style={{ fontSize: '0.75rem', color: '#10B981', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: '#34D399', fontWeight: 600 }}>
               Analyzing with Gemma 3n...
             </span>
           )}
@@ -184,7 +187,7 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                       style={{
                         fontSize: '1rem',
                         fontWeight: 700,
-                        color: '#111827',
+                        color: '#F8FAFC',
                         margin: 0,
                       }}
                     >
@@ -193,9 +196,10 @@ export const DocumentDrawer: React.FC<DocumentDrawerProps> = ({
                     <span
                       style={{
                         fontSize: '0.74rem',
-                        color: '#4B5563',
+                        color: '#34D399',
                         fontWeight: 600,
-                        background: '#F3F4F6',
+                        background: 'rgba(52, 211, 153, 0.12)',
+                        border: '1px solid rgba(52, 211, 153, 0.25)',
                         padding: '3px 8px',
                         borderRadius: '12px',
                       }}
